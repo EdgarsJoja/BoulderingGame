@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdu8kpyshf8ov"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_whgaa"]
+[ext_resource type="Texture2D" uid="uid://c3ucg0y7peqc3" path="res://art/hand.png" id="2_sfxak"]
+[ext_resource type="Texture2D" uid="uid://3rig5o643p0x" path="res://icon.svg" id="3_bou8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq8gt"]
+atlas = ExtResource("2_sfxak")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0gfh"]
+atlas = ExtResource("2_sfxak")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_newtf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq8gt")
+}],
+"loop": true,
+"name": &"grab",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0gfh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vve0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ywa3"]
+
+[node name="Player" type="Node2D"]
+z_index = 100
+script = ExtResource("1_whgaa")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="LeftHand" type="Node2D" parent="Body"]
+
+[node name="LeftHandSprite" type="AnimatedSprite2D" parent="Body/LeftHand"]
+position = Vector2(-100, 20)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_newtf")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="LeftHandArea" type="Area2D" parent="Body/LeftHand/LeftHandSprite"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/LeftHand/LeftHandSprite/LeftHandArea"]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_0vve0")
+
+[node name="LeftHandTarget" type="Marker2D" parent="Body/LeftHand"]
+position = Vector2(-100, -24)
+
+[node name="RightHand" type="Node2D" parent="Body"]
+
+[node name="RightHandSprite" type="AnimatedSprite2D" parent="Body/RightHand"]
+position = Vector2(100, 20)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_newtf")
+animation = &"grab"
+autoplay = "idle"
+flip_v = true
+
+[node name="RightHandArea" type="Area2D" parent="Body/RightHand/RightHandSprite"]
+position = Vector2(-0.25, 0.25)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/RightHand/RightHandSprite/RightHandArea"]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_0vve0")
+
+[node name="RightHandTarget" type="Marker2D" parent="Body/RightHand"]
+position = Vector2(99, -21)
+
+[node name="Head" type="RigidBody2D" parent="Body"]
+modulate = Color(1, 1, 1, 0.2)
+lock_rotation = true
+
+[node name="LeftHandOrigin" type="Marker2D" parent="Body/Head"]
+position = Vector2(-100, 17)
+
+[node name="RightHandOrigin" type="Marker2D" parent="Body/Head"]
+position = Vector2(97, 20)
+
+[node name="Camera2D" type="Camera2D" parent="Body/Head"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Head"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_7ywa3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body/Head"]
+texture = ExtResource("3_bou8o")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://xveih74lh3a7"]
+
+[ext_resource type="Texture2D" uid="uid://kfw1wdxk8rw6" path="res://art/holds-Sheet.png" id="1_riqse"]
+
+[node name="Hold-2" type="Area2D"]
+collision_layer = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-416, -37)
+scale = Vector2(4, 4)
+texture = ExtResource("1_riqse")
+polygon = PackedVector2Array(97.4733, 2.75, 97.1608, 17.1875, 114.411, 16.5625, 111.223, 0.625, 97.9733, 0.5625)
+uv = PackedVector2Array(97.4733, 2.75, 97.1608, 17.1875, 114.411, 16.5625, 111.223, 0.625, 97.9733, 0.5625)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(9, -24, -4, -23, -5, 7, -14, 13, 1, 15, 2, 17, 22, 18, 12, 11, -1, 10, 0, -18, 9, -18)
