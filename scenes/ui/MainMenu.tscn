@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4t8hy6y0h4tn"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_krwlg"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krwlg")
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.87451, 0.666667, 0.407843, 1)
+
+[node name="List" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.422068
+anchor_right = 0.586806
+anchor_bottom = 0.577932
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="V0" type="Button" parent="MainMenu/List"]
+layout_mode = 2
+text = "V0"
+
+[node name="V1" type="Button" parent="MainMenu/List"]
+layout_mode = 2
+text = "V1"
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/List"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="MainMenu/List"]
+layout_mode = 2
+text = "Exit"

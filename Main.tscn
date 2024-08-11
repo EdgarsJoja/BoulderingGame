@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://cuukv7j406mpm"]
+[gd_scene load_steps=4 format=3 uid="uid://cuukv7j406mpm"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_f884f"]
+[ext_resource type="PackedScene" uid="uid://b4t8hy6y0h4tn" path="res://scenes/ui/MainMenu.tscn" id="2_nc5u1"]
+[ext_resource type="PackedScene" uid="uid://w1vlfgryvm3" path="res://scenes/ui/PauseMenu.tscn" id="3_a1cc6"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_f884f")
+
+[node name="CurrentScene" type="Node" parent="."]
+
+[node name="MainMenu" parent="CurrentScene" instance=ExtResource("2_nc5u1")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_a1cc6")]

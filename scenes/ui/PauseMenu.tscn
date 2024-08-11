@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://w1vlfgryvm3"]
+
+[ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_uoxru"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+z_index = 500
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_uoxru")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.352941, 0.380392, 0.501961, 0.658824)
+
+[node name="List" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.422068
+anchor_right = 0.586806
+anchor_bottom = 0.577932
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PauseMenu/List"]
+layout_mode = 2
+text = "Resume
+"
+
+[node name="HSeparator" type="HSeparator" parent="PauseMenu/List"]
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="PauseMenu/List"]
+layout_mode = 2
+text = "Main Menu"
